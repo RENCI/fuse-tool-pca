@@ -10,7 +10,7 @@ services:
         - ${HOST_PORT}:${CONTAINER_PORT}
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
-        - ${CONFIG_PATH}:/app/config.json
+        - $PWD/config/config.json:/app/config.json
     networks:
       - tool_pca_network
 
