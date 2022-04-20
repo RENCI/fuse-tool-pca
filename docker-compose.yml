@@ -7,7 +7,7 @@ services:
     restart: always
     env_file: .env
     ports:
-        - ${HOST_PORT}:${CONTAINER_PORT}
+        - ${HOST_PORT}:${HOST_PORT}
     volumes:
         - /var/run/docker.sock:/var/run/docker.sock
         - $PWD/config/config.json:/app/config.json
