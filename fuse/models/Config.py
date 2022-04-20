@@ -1,3 +1,5 @@
+import os
+
 from pydantic import BaseModel
 
 
@@ -6,7 +8,7 @@ class LogConfig(BaseModel):
 
     LOGGER_NAME: str = "fuse-tool-pca"
     LOG_FORMAT: str = "%(levelprefix)s | %(asctime)s | %(funcName)s | %(message)s"
-    LOG_LEVEL: str = "DEBUG"
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", default="DEBUG")
 
     # Logging config
     version = 1
