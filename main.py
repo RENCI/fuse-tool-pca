@@ -116,8 +116,8 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
         return_object["end_time"] = end_time
         return_object["contents"] = [
             {
-                "name": "PCA table",
-                "results_type": "PCA",
+                "name": "pca",
+                "results_type": "filetype_results_PCATable",
                 "spec": "",
                 "size": [len(results), parameters.number_of_components],
                 "contents": results
