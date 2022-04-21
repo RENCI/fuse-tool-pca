@@ -73,10 +73,10 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
     """
     Gene expression data are formatted with gene id's on rows, and samples on columns. Gene expression counts/intensities will not be normalized as part of the analysis. No header row, comma-delimited.
     """
-    logger.debug(msg=f"parameters: {parameters}")
+    logger.info(f"parameters: {parameters}")
     try:
         start_time = datetime.now()
-        logger.info(msg=f"[submit] started: {start_time}")
+        logger.info(f"started: {start_time}")
         # do some analysis
 
         match (expression_file, parameters.expression_url):
