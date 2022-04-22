@@ -103,7 +103,7 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
         df_results = pd.DataFrame(data=df_principalComponents, columns=pc_cols)
         logger.info("added PC column names.")
         results = df_results.values.tolist()
-        type_converted = [str(a) for a in results]
+        type_converted = [list(map(str, a)) for a in results]
         logger.info("transformed to list.")
         # analysis finished.
         end_time = datetime.now()
