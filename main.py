@@ -119,8 +119,8 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
                     "name": "pca",
                     "results_type": "filetype_results_PCATable",
                     "spec": "",
-                    "size": [len(results), parameters.number_of_components],
-                    "contents": results
+                    "dimension": [len(results), parameters.number_of_components],
+                    "data": results
                 }
             ]}
 
