@@ -100,10 +100,10 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
         pc_cols = []
         for col in range(0, parameters.number_of_components):
             pc_cols.append(f'PC{col + 1}')
-        df_results = pd.DataFrame(data=df_principalComponents,
-                                  columns=pc_cols)
+        df_results = pd.DataFrame(data=df_principalComponents, columns=pc_cols)
         logger.info("added PC column names.")
         results = df_results.values.tolist()
+        type_converted = [str(a) for a in results]
         logger.info("transformed to list.")
         # analysis finished.
         end_time = datetime.now()
@@ -120,7 +120,7 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
                     "results_type": "filetype_results_PCATable",
                     "spec": "",
                     "dimension": [len(results), parameters.number_of_components],
-                    "data": results
+                    "data": type_converted
                 }
             ]}
 
