@@ -110,19 +110,19 @@ async def analyze(parameters: ToolParameters = Depends(ToolParameters.as_form),
         logger.info(f"ended: {end_time}")
         # xxx come back to this
         # return_object = AnalysisResults()
-        return_object = {}
-        return_object["submitter_id"] = parameters.submitter_id
-        return_object["start_time"] = start_time
-        return_object["end_time"] = end_time
-        return_object["contents"] = [
-            {
-                "name": "pca",
-                "results_type": "filetype_results_PCATable",
-                "spec": "",
-                "size": [len(results), parameters.number_of_components],
-                "contents": results
-            }
-        ]
+        return_object = {
+            "submitter_id": parameters.submitter_id,
+            "start_time": start_time,
+            "end_time": end_time,
+            "results": [
+                {
+                    "name": "pca",
+                    "results_type": "filetype_results_PCATable",
+                    "spec": "",
+                    "size": [len(results), parameters.number_of_components],
+                    "contents": results
+                }
+            ]}
 
         logger.info(msg=f"returning: {return_object}")
         return return_object
