@@ -2,24 +2,19 @@ import uvicorn
 import datetime
 import inspect
 import os
-
 from fastapi import FastAPI, File, UploadFile, Form, Depends, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, AnyHttpUrl
 from typing import Type, Optional, List
 from starlette.responses import StreamingResponse
-
 from bson.json_util import dumps, loads
 import traceback
-
-
-from fuse.models.Objects import AnalysisResults
-
+from fuse_utilities.main import as_form, Contents, AnalysisResults
 from fastapi.logger import logger
-
 from logging.config import dictConfig
 import logging
 from fuse.models.Config import LogConfig
+
 
 dictConfig(LogConfig().dict())
 logger = logging.getLogger("fuse-tool-pca")
