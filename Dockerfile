@@ -5,6 +5,7 @@ EXPOSE 8086
 COPY ./requirements.txt /app/requirements.txt
 
 RUN pip install -r /app/requirements.txt
+RUN pip install -i https://test.pypi.org/simple/ fuse-utilities
 
 RUN apt-get update
 
