@@ -14,10 +14,10 @@ import requests
 import uvicorn
 from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
+from fuse_utilities.main import ToolParameters
 from sklearn.decomposition import PCA
 
 from fuse.models.Config import LogConfig
-from fuse.models.Objects import ToolParameters
 
 dictConfig(LogConfig().dict())
 logger = logging.getLogger("fuse-tool-pca")
