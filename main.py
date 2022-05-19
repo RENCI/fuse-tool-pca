@@ -14,7 +14,7 @@ import requests
 import uvicorn
 from fastapi import FastAPI, File, UploadFile, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from fuse_utilities.main import ToolParameters
+from fuse_cdm.main import ToolParameters
 from sklearn.decomposition import PCA
 
 from fuse.models.Config import LogConfig
